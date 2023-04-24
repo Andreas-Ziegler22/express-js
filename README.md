@@ -44,7 +44,10 @@ I will use
 
 ```
 
-when I want to run my code I will use the commad npm start or npm run start
+when I want to run my code I will use the commad:
+- npm start 
+- npm run start
+- nodemon index.js
 
 
 At professional ambient  developers are using pm2 insted of nodemom.
