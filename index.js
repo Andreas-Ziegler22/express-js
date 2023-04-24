@@ -1,7 +1,22 @@
 const express = require('express')
 const app = express()
 
-app.use((req,res)=>{
+
+
+app.get((req,res)=>{
+    res.json({
+        data: [
+          { id: 01, client: "John Doe", account: "xxxx-xxxx" },
+          { id: 02, client: "Martin Tom", account: "yyyyx-xxxx" },
+          { id: 03, client: "Tiny Doe", account: "zzzzx-xxxx" },
+        ],
+        count: 30,
+        skip: 0,
+        limit: 3,
+        status: 200,
+      }); // <- a request with more details 
+
+
     // res.json([
     //     {id:01, client: 'John Doe', account: "xxxx-xxxx"},
     //     {id:02, client: 'Martin Tom', account: "yyyyx-xxxx"},
