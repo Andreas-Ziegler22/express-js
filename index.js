@@ -1,9 +1,13 @@
 const express = require('express')
 const app = express()
 
-
+app.use((req, res, next)=>{
+    console.log('call me before ')
+    next()
+})
 
 app.get((req,res)=>{
+    console.log('call me during the process')
     res.json({
         data: [
           { id: 01, client: "John Doe", account: "xxxx-xxxx" },
@@ -15,7 +19,7 @@ app.get((req,res)=>{
         limit: 3,
         status: 200,
       }); // <- a request with more details 
-
+      next()
 
     // res.json([
     //     {id:01, client: 'John Doe', account: "xxxx-xxxx"},
@@ -32,6 +36,11 @@ app.get((req,res)=>{
     // }) // <- here we can see it works JSON
 
     // res.send('show me a ❤️!') // <- here we can see it works with HTML
+})
+
+app.use((req, res)=>{
+    console.log('call me after ')
+    
 })
 
 app.listen(3001, ()=>{
