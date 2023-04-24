@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
 
+const hello = require('./sayHiMiddlewhere')
+
+app.use(hello('Parameter'))
+
 app.use((req, res, next)=>{
     console.log('call me before ')
     next()
