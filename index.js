@@ -10,6 +10,16 @@ app.use((req, res, next)=>{
     next()
 })
 
+app.get("/clients/query", (req, res) => {
+    res.send(
+      `Client query: complete = ${req.query.complete} year = ${req.query.year}`
+    );
+  });
+  
+  app.get("/clients/:id", (req, res) => {
+    res.send(`Client ${req.params.id} selected`);
+  });
+
 app.get((req,res)=>{
     console.log('call me during the process')
     res.json({
