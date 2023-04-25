@@ -4,12 +4,18 @@ const bodyParser = require('body-parser')
 
 const hello = require('./sayHiMiddlewhere')
 
+app.use(bodyParser.text());
+app.use(bodyParser.json());
 app.use(hello('Parameter'))
 
 app.use((req, res, next)=>{
     console.log('call me before ')
     next()
 })
+
+app.post("/body", (req, res) => {
+    res.send(req.body); // exemple how to use bodyParse with postman
+  });
 
 app.get("/clients/query", (req, res) => {
     res.send(
